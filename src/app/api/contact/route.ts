@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { Resend } from "resend";
 import { z } from "zod";
 import { siteConfig } from "@/data/site";
@@ -53,33 +54,64 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: true }, { status: 200 });
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      return NextResponse.json(
-        {
-          error: `Contact form is not configured yet. Please email ${siteConfig.email} directly.`,
+    const subject = `Portfolio inquiry from ${name}`;
+    const text = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+
+    if (smtpUser && smtpPass) {
+      const port = Number(process.env.SMTP_PORT || "465");
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST || "smtp.gmail.com",
+        port,
+        secure: port === 465,
+        auth: {
+          user: smtpUser,
+          pass: smtpPass,
         },
-        { status: 503 }
-      );
+      });
+
+      await transporter.sendMail({
+        from: `"${name} via Portfolio" <${smtpUser}>`,
+        to: siteConfig.email,
+        replyTo: email,
+        subject,
+        text,
+      });
+
+      return NextResponse.json({ ok: true }, { status: 200 });
     }
 
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from: siteConfig.resendFromEmail,
-      to: siteConfig.email,
-      replyTo: email,
-      subject: `Portfolio inquiry from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-    });
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      const resend = new Resend(resendKey);
+      const { error } = await resend.emails.send({
+        from: siteConfig.resendFromEmail,
+        to: siteConfig.email,
+        replyTo: email,
+        subject,
+        text,
+      });
 
-    if (error) {
-      return NextResponse.json(
-        { error: "Unable to deliver email right now. Please email directly." },
-        { status: 502 }
-      );
+      if (error) {
+        return NextResponse.json(
+          {
+            error: "Unable to deliver email right now. Please email directly.",
+          },
+          { status: 502 }
+        );
+      }
+
+      return NextResponse.json({ ok: true }, { status: 200 });
     }
 
-    return NextResponse.json({ ok: true }, { status: 200 });
+    return NextResponse.json(
+      {
+        error: `Contact form is not configured yet. Please email ${siteConfig.email} directly.`,
+      },
+      { status: 503 }
+    );
   } catch {
     return NextResponse.json(
       { error: "Unexpected error processing your request." },

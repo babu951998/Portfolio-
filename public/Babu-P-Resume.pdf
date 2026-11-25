@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
+4 0 obj << /Length 1869 >> stream
+BT
+/F1 10 Tf
+50 760 Td
+14 TL
+(Babu P) Tj T*
+(Full Stack Developer | Node.js | React.js | Angular | Python | PHP \(CodeIgniter 4\)) Tj T*
+(Tamil Nadu, India | +91 86082 19655 | arivubabu98@gmail.com | linkedin.com/in/babu9598) Tj T*
+() Tj T*
+(PROFESSIONAL SUMMARY) Tj T*
+(Full Stack Developer with 2.5+ years of experience building web applications, REST APIs,) Tj T*
+(and real-time IoT platforms using Node.js, Express.js, React.js, Angular, PHP \(CodeIgniter 4\),) Tj T*
+(Python, MongoDB, and MySQL. Contributed to an IoT platform supporting 5,000+ connected) Tj T*
+(devices across 100+ customer sites.) Tj T*
+() Tj T*
+(EXPERIENCE) Tj T*
+(Software Developer | Team Tweaks Technology Pvt. Ltd. | April 2024 - Present) Tj T*
+(- Develop and maintain full-stack applications and REST APIs for 500+ users across 100+ sites.) Tj T*
+(- Built and maintained an MQTT-to-Socket.io pipeline receiving 1-second telemetry from 5,000+ devices.) Tj T*
+(- Designed MongoDB schemas, queries, and aggregation pipelines for time-series sensor data.) Tj T*
+(- Built RBAC admin modules, integrated payment gateways, LDAP, Firebase, AWS S3, and AI chatbot.) Tj T*
+() Tj T*
+(PROJECTS) Tj T*
+(KarIoT - Smart Water Management Platform \(5,000+ devices, 100+ sites, CMWSSB\)) Tj T*
+(Unimation Robotics - Smart AC Monitoring and Control Platform \(MQTT, CI4, Angular, MongoDB\)) Tj T*
+(Fixix - Construction Materials E-Commerce Platform \(MERN stack, RBAC, REST APIs\)) Tj T*
+() Tj T*
+(ADDITIONAL EXPERIENCE) Tj T*
+(Inside Sales Associate | Byju's Classes | Jul 2022 - Jul 2023) Tj T*
+(Automation Engineer | Foxconn Hon Hai Technology India Pvt. Ltd. | Jan 2022 - Jun 2022) Tj T*
+(Site Manager | Sodexo India Services Pvt. Ltd. | Jan 2020 - Dec 2021) Tj T*
+() Tj T*
+(EDUCATION) Tj T*
+(B.E. Electronics and Communication | Muthayammal Engineering College \(Anna University\) | 2015-2019) Tj T*
+ET
+endstream endobj
+5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000002162 00000 n 
+trailer << /Size 6 /Root 1 0 R >>
+startxref
+2232
+%%EOF

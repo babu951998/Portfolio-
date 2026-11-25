@@ -10,9 +10,9 @@ export function ArchitectureDiagram({
   title,
 }: ArchitectureDiagramProps) {
   const nodes = architecture.nodes;
-  const nodeWidth = 156;
-  const nodeHeight = 86;
-  const gap = 34;
+  const nodeWidth = nodes.length <= 4 ? 210 : 176;
+  const nodeHeight = 104;
+  const gap = nodes.length <= 4 ? 42 : 30;
   const paddingX = 16;
   const paddingY = 20;
   const totalWidth =
@@ -24,7 +24,7 @@ export function ArchitectureDiagram({
       <div className="overflow-x-auto pb-2">
         <svg
           viewBox={`0 0 ${totalWidth} ${totalHeight}`}
-          className="h-auto min-w-[680px] w-full"
+          className="h-auto w-full min-w-[700px]"
           role="img"
           aria-label={`${title} system architecture diagram`}
         >
@@ -74,31 +74,40 @@ export function ArchitectureDiagram({
                       : "var(--text-muted)"
                   }
                 />
-                <text
-                  x={x + 12}
-                  y={y + 24}
-                  fill="var(--text-primary)"
-                  fontSize="11.5"
-                  fontWeight="600"
-                  fontFamily="var(--font-ibm-mono), monospace"
-                >
-                  {node.label}
-                </text>
                 <foreignObject
-                  x={x + 12}
-                  y={y + 32}
-                  width={nodeWidth - 24}
-                  height={nodeHeight - 40}
+                  x={x + 14}
+                  y={y + 14}
+                  width={nodeWidth - 28}
+                  height={nodeHeight - 22}
                 >
                   <div
                     style={{
-                      fontSize: "10.5px",
-                      lineHeight: "1.35",
-                      color: "var(--text-secondary)",
-                      fontFamily: "var(--font-jakarta), sans-serif",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "6px",
                     }}
                   >
-                    {node.detail}
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        lineHeight: "1.25",
+                        fontWeight: 600,
+                        color: "var(--text-primary)",
+                        fontFamily: "var(--font-ibm-mono), monospace",
+                      }}
+                    >
+                      {node.label}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "11.5px",
+                        lineHeight: "1.35",
+                        color: "var(--text-secondary)",
+                        fontFamily: "var(--font-jakarta), sans-serif",
+                      }}
+                    >
+                      {node.detail}
+                    </div>
                   </div>
                 </foreignObject>
 

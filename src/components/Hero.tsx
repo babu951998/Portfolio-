@@ -25,13 +25,11 @@ export function Hero() {
                 {heroContent.primaryCta}
               </a>
               <a
-                href="/resume"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Resume PDF (opens in a new tab)"
+                href="/resume?v=2"
+                download="Babu_P_Full_Stack_Developer_Resume.pdf"
                 className="inline-flex items-center border border-line px-5 py-2.5 font-mono text-xs tracking-wide text-ink uppercase transition-colors hover:border-ink"
               >
-                {heroContent.secondaryCta} ↗
+                {heroContent.secondaryCta}
               </a>
             </div>
             <p className="mt-4 font-mono text-xs text-ink-muted">

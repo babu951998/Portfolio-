@@ -33,13 +33,11 @@ export function Header() {
             </Link>
           ))}
           <a
-            href="/resume"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Resume PDF (opens in a new tab)"
+            href="/resume?v=2"
+            download="Babu_P_Full_Stack_Developer_Resume.pdf"
             className="link-draw font-mono text-xs tracking-wide text-ink-secondary uppercase transition-colors hover:text-ink"
           >
-            Resume ↗
+            Resume
           </a>
           <ThemeToggle />
         </nav>
@@ -105,14 +103,12 @@ export function Header() {
             ))}
             <li>
               <a
-                href="/resume"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Resume PDF (opens in a new tab)"
+                href="/resume?v=2"
+                download="Babu_P_Full_Stack_Developer_Resume.pdf"
                 onClick={() => setMenuOpen(false)}
                 className="inline-block font-mono text-xs tracking-wide text-ink-secondary uppercase hover:text-ink"
               >
-                Resume ↗
+                Resume
               </a>
             </li>
           </ul>

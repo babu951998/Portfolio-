@@ -12,8 +12,9 @@ export async function GET() {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="Babu-P-Resume.pdf"',
-        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Disposition":
+          'attachment; filename="Babu_P_Full_Stack_Developer_Resume.pdf"',
+        "Cache-Control": "no-store",
       },
     });
   } catch {

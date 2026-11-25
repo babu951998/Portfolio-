@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { heroContent } from "@/data/portfolio";
 import { siteConfig } from "@/data/site";
 import { TelemetryStream } from "./TelemetryStream";
@@ -39,7 +40,30 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="space-y-4 lg:col-span-5">
+            {siteConfig.photoUrl && (
+              <div className="flex items-center gap-4 border border-line bg-surface/60 p-3">
+                <div className="relative aspect-[4/5] w-24 shrink-0 overflow-hidden border border-line sm:w-28">
+                  <Image
+                    src={siteConfig.photoUrl}
+                    alt={`${siteConfig.name} — ${siteConfig.role}`}
+                    fill
+                    priority
+                    sizes="112px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="min-w-0 font-mono text-xs">
+                  <p className="font-serif text-lg font-normal text-ink">
+                    {siteConfig.name}
+                  </p>
+                  <p className="mt-0.5 text-ink-secondary">{siteConfig.role}</p>
+                  <p className="mt-2 text-[11px] text-ink-muted">
+                    2.5+ yrs · 5,000+ IoT devices · 100+ sites
+                  </p>
+                </div>
+              </div>
+            )}
             <TelemetryStream />
           </div>
         </div>

@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   const filePath = path.join(process.cwd(), "public", "Babu-P-Resume.pdf");
+  const isDownload = request.nextUrl.searchParams.get("download") === "1";
+  const disposition = isDownload ? "attachment" : "inline";
 
   try {
     const fileBuffer = await readFile(filePath);
@@ -12,7 +14,7 @@ export async function GET() {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'inline; filename="Babu-P-Resume.pdf"',
+        "Content-Disposition": `${disposition}; filename="Babu-P-Resume.pdf"`,
         "Cache-Control": "public, max-age=3600",
       },
     });

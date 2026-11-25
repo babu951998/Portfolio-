@@ -48,14 +48,28 @@ export function TelemetryStream() {
   const [points, setPoints] = useState<TelemetryPoint[]>(INITIAL_POINTS);
   const [tick, setTick] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (media.matches) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setReducedMotion(true);
-      return;
-    }
+    const updateMotion = () => setReducedMotion(media.matches);
+    updateMotion();
+    media.addEventListener("change", updateMotion);
+
+    const updateVisibility = () => {
+      setIsVisible(document.visibilityState === "visible");
+    };
+    updateVisibility();
+    document.addEventListener("visibilitychange", updateVisibility);
+
+    return () => {
+      media.removeEventListener("change", updateMotion);
+      document.removeEventListener("visibilitychange", updateVisibility);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion || !isVisible) return;
 
     const interval = setInterval(() => {
       setTick((t) => t + 1);
@@ -85,7 +99,7 @@ export function TelemetryStream() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [reducedMotion, isVisible]);
 
   const latest = points[points.length - 1];
   const width = 340;
@@ -102,12 +116,15 @@ export function TelemetryStream() {
   const gridYPositions = [0.2, 0.4, 0.6, 0.8].map((r) =>
     Math.round(height * r)
   );
+  const isAnimating = !reducedMotion && isVisible;
 
   return (
     <aside
-      aria-label="Simulated 1-second MQTT telemetry stream"
+      aria-label="Simulated 1-second telemetry stream"
       className="border border-line bg-surface/60 p-5 sm:p-6"
     >
+      <span className="sr-only">{heroContent.telemetryScreenReaderNote}</span>
+
       <div className="mb-4 flex items-center justify-between gap-4 border-b border-line pb-3">
         <div className="flex items-center gap-2">
           <span
@@ -118,7 +135,7 @@ export function TelemetryStream() {
             {heroContent.telemetryTitle}
           </span>
         </div>
-        <span className="font-mono text-xs text-ink-muted">
+        <span className="font-mono text-xs whitespace-nowrap text-ink-muted">
           {heroContent.telemetryBadge}
         </span>
       </div>
@@ -150,7 +167,7 @@ export function TelemetryStream() {
             strokeLinejoin="round"
             strokeLinecap="round"
           />
-          {!reducedMotion && (
+          {isAnimating && (
             <circle
               cx={lastPoint.x}
               cy={lastPoint.y}
@@ -185,8 +202,8 @@ export function TelemetryStream() {
         </div>
       </dl>
 
-      <p className="mt-4 font-mono text-xs text-ink-muted">
-        {heroContent.telemetryNote} · seq #{1040 + tick}
+      <p className="mt-4 font-mono text-xs whitespace-nowrap text-ink-muted">
+        {heroContent.telemetryNotePrefix} · seq #{1040 + tick}
       </p>
     </aside>
   );

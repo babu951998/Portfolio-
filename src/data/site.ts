@@ -90,9 +90,10 @@ export const heroContent = {
     "I work on a platform that handles telemetry from 5,000+ connected devices, each reporting every second, across 100+ customer sites. Node.js, React, Angular, Python and CodeIgniter 4.",
   primaryCta: "Get in touch",
   secondaryCta: "Resume PDF",
-  telemetryTitle: "MQTT to Socket.io Stream",
-  telemetryBadge: "1 Hz · illustrative",
-  telemetryNote: "kariot/site-104/pump-02 (illustrative telemetry)",
+  telemetryTitle: "Live telemetry (simulated)",
+  telemetryBadge: "1 Hz",
+  telemetryNotePrefix: "demo/pump-01",
+  telemetryScreenReaderNote: "Simulated data for illustration.",
 };
 
 export const projects: CaseStudy[] = [

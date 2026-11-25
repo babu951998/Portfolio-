@@ -33,7 +33,14 @@ export function SkillsSection() {
                 </dt>
                 <dd className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs leading-relaxed text-ink-secondary lg:col-span-8">
                   {group.items.map((item) => (
-                    <span key={item} className="whitespace-nowrap">
+                    <span
+                      key={item}
+                      className={
+                        item.length > 28
+                          ? "sm:whitespace-nowrap"
+                          : "whitespace-nowrap"
+                      }
+                    >
                       {item}
                     </span>
                   ))}

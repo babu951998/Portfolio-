@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projects } from "@/data/portfolio";
+import { projects } from "@/data/site";
 import { Reveal } from "./Reveal";
 
 export function WorkSection() {
@@ -10,7 +10,7 @@ export function WorkSection() {
       className="border-b border-line py-16 sm:py-24"
     >
       <div className="mx-auto max-w-[70rem] px-5 sm:px-8">
-        <div className="mb-12 flex flex-col justify-between gap-3 border-b border-line pb-5 sm:flex-row sm:items-end">
+        <div className="mb-8 flex flex-col justify-between gap-3 border-b border-line pb-5 sm:flex-row sm:items-end">
           <div>
             <p className="font-mono text-xs tracking-wider text-ink-muted uppercase">
               01 / Selected Work
@@ -23,14 +23,14 @@ export function WorkSection() {
             </h2>
           </div>
           <p className="font-mono text-xs text-ink-muted">
-            IoT telemetry, HVAC automation &amp; e-commerce APIs
+            IoT telemetry, HVAC automation &amp; e‑commerce APIs
           </p>
         </div>
 
         <div className="divide-y divide-line">
           {projects.map((project, idx) => (
             <Reveal key={project.slug} delay={idx * 0.05}>
-              <article className="py-10 first:pt-2 last:pb-2">
+              <article className="py-14">
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10">
                   <div className="lg:col-span-4">
                     <div className="flex items-center gap-3 font-mono text-xs text-ink-muted">
@@ -59,11 +59,11 @@ export function WorkSection() {
                       {project.problem}
                     </p>
 
-                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-ink-secondary">
-                      {project.contributions.slice(0, 3).map((item) => (
+                    <ul className="mt-4 space-y-2.5 text-[15px] leading-relaxed text-ink-secondary">
+                      {project.contributions.map((item) => (
                         <li key={item} className="flex gap-2.5">
                           <span
-                            className="mt-2 h-1 w-1 shrink-0 bg-accent"
+                            className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-accent"
                             aria-hidden="true"
                           />
                           <span>{item}</span>
@@ -71,22 +71,38 @@ export function WorkSection() {
                       ))}
                     </ul>
 
-                    <div className="mt-5 flex flex-wrap items-center justify-between gap-4 pt-2">
-                      <ul
-                        aria-label={`${project.title} technology stack`}
-                        className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-ink-muted"
-                      >
-                        {project.stack.map((tech) => (
-                          <li key={tech}>{tech}</li>
-                        ))}
-                      </ul>
+                    <ul
+                      aria-label={`${project.title} technology stack`}
+                      className="mt-6 flex flex-wrap gap-2"
+                    >
+                      {project.stack.map((tech) => (
+                        <li
+                          key={tech}
+                          className="border border-line px-2.5 py-1 font-mono text-xs whitespace-nowrap text-ink-secondary"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
 
+                    <div className="mt-5 flex flex-wrap items-center gap-6">
                       <Link
                         href={`/work/${project.slug}`}
-                        className="link-draw shrink-0 font-mono text-xs tracking-wide text-accent uppercase"
+                        className="link-draw font-mono text-xs tracking-wide text-accent uppercase"
                       >
                         Read case study →
                       </Link>
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Visit ${project.title} product site (opens in a new tab)`}
+                          className="link-draw font-mono text-xs tracking-wide text-ink-secondary uppercase hover:text-ink"
+                        >
+                          Visit product site ↗
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

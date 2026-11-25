@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { heroContent } from "@/data/portfolio";
-import { siteConfig } from "@/data/site";
+import { heroContent, siteConfig } from "@/data/site";
 import { TelemetryStream } from "./TelemetryStream";
 
 export function Hero() {
@@ -15,7 +13,7 @@ export function Hero() {
             <h1 className="mt-4 font-serif text-4xl leading-[1.08] font-normal tracking-tight text-ink sm:text-5xl lg:text-[3.25rem]">
               {heroContent.headline}
             </h1>
-            <p className="mt-6 max-w-[60ch] text-base leading-relaxed text-ink-secondary sm:text-lg">
+            <p className="mt-6 max-w-[60ch] text-base leading-relaxed text-ink-secondary">
               {heroContent.subheadline}
             </p>
 
@@ -30,40 +28,18 @@ export function Hero() {
                 href="/resume"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Resume PDF (opens in a new tab)"
                 className="inline-flex items-center border border-line px-5 py-2.5 font-mono text-xs tracking-wide text-ink uppercase transition-colors hover:border-ink"
               >
-                {heroContent.secondaryCta}
+                {heroContent.secondaryCta} ↗
               </a>
-              <span className="font-mono text-xs text-ink-muted">
-                {siteConfig.availability}
-              </span>
             </div>
+            <p className="mt-4 font-mono text-xs text-ink-muted">
+              {siteConfig.availability}
+            </p>
           </div>
 
-          <div className="space-y-4 lg:col-span-5">
-            {siteConfig.photoUrl && (
-              <div className="flex items-center gap-4 border border-line bg-surface/60 p-3">
-                <div className="relative aspect-[4/5] w-24 shrink-0 overflow-hidden border border-line sm:w-28">
-                  <Image
-                    src={siteConfig.photoUrl}
-                    alt={`${siteConfig.name} — ${siteConfig.role}`}
-                    fill
-                    priority
-                    sizes="112px"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="min-w-0 font-mono text-xs">
-                  <p className="font-serif text-lg font-normal text-ink">
-                    {siteConfig.name}
-                  </p>
-                  <p className="mt-0.5 text-ink-secondary">{siteConfig.role}</p>
-                  <p className="mt-2 text-[11px] text-ink-muted">
-                    2.5+ yrs · 5,000+ IoT devices · 100+ sites
-                  </p>
-                </div>
-              </div>
-            )}
+          <div className="lg:col-span-5">
             <TelemetryStream />
           </div>
         </div>

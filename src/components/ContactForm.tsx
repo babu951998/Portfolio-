@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { contactContent } from "@/data/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -78,7 +79,7 @@ export function ContactForm() {
             minLength={2}
             maxLength={100}
             placeholder="Your name"
-            className="mt-2 w-full border border-line bg-bg px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none"
+            className="mt-2 w-full border border-line bg-bg px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none"
           />
         </div>
 
@@ -95,7 +96,7 @@ export function ContactForm() {
             type="email"
             required
             placeholder="you@company.com"
-            className="mt-2 w-full border border-line bg-bg px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none"
+            className="mt-2 w-full border border-line bg-bg px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none"
           />
         </div>
       </div>
@@ -115,7 +116,7 @@ export function ContactForm() {
           maxLength={2000}
           rows={5}
           placeholder="Role, team, or project details..."
-          className="mt-2 w-full border border-line bg-bg px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none"
+          className="mt-2 w-full border border-line bg-bg px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none"
         />
       </div>
 
@@ -125,20 +126,23 @@ export function ContactForm() {
           disabled={status === "submitting"}
           className="inline-flex items-center border border-ink bg-ink px-5 py-2.5 font-mono text-xs tracking-wide text-bg uppercase transition-colors hover:border-accent hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "submitting" ? "Sending..." : "Send message"}
+          {status === "submitting"
+            ? contactContent.submittingLabel
+            : contactContent.submitLabel}
         </button>
 
-        {status === "success" && (
-          <p role="status" className="font-mono text-xs text-accent">
-            Message sent. I will reply within one business day.
-          </p>
-        )}
-
-        {status === "error" && (
-          <p role="alert" className="font-mono text-xs text-accent">
-            {errorMessage}
-          </p>
-        )}
+        <div aria-live="polite" className="min-h-5">
+          {status === "success" && (
+            <p role="status" className="font-mono text-xs text-accent">
+              {contactContent.successMessage}
+            </p>
+          )}
+          {status === "error" && (
+            <p role="alert" className="font-mono text-xs text-accent">
+              {errorMessage}
+            </p>
+          )}
+        </div>
       </div>
     </form>
   );

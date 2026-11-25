@@ -5,8 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { TelemetryStream } from "@/components/TelemetryStream";
-import { projects } from "@/data/portfolio";
-import { siteConfig } from "@/data/site";
+import { projects, siteConfig } from "@/data/site";
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>;
@@ -27,13 +26,13 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} — ${project.subtitle}`,
+    title: `${project.title}: ${project.subtitle}`,
     description: project.summary,
     alternates: {
       canonical: `/work/${project.slug}`,
     },
     openGraph: {
-      title: `${project.title} — ${project.subtitle} · ${siteConfig.name}`,
+      title: `${project.title}: ${project.subtitle} · ${siteConfig.name}`,
       description: project.summary,
       url: `${siteConfig.siteUrl}/work/${project.slug}`,
     },
@@ -50,7 +49,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   const currentIndex = projects.findIndex((p) => p.slug === slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
-  const links = siteConfig.projectLinks[project.slug];
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -75,55 +73,51 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             <h1 className="mt-3 font-serif text-4xl leading-tight font-normal tracking-tight text-ink sm:text-5xl">
               {project.title}: {project.subtitle}
             </h1>
-            <p className="mt-4 max-w-[65ch] text-lg leading-relaxed text-ink-secondary">
+            <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-ink-secondary sm:text-lg">
               {project.summary}
             </p>
 
             <dl className="mt-8 grid grid-cols-1 gap-6 border-t border-line pt-6 sm:grid-cols-3">
               <div>
-                <dt className="font-mono text-[11px] tracking-wider text-ink-muted uppercase">
+                <dt className="font-mono text-xs tracking-wider text-ink-muted uppercase">
                   Role
                 </dt>
                 <dd className="mt-1 text-sm text-ink">{project.role}</dd>
               </div>
               <div>
-                <dt className="font-mono text-[11px] tracking-wider text-ink-muted uppercase">
+                <dt className="font-mono text-xs tracking-wider text-ink-muted uppercase">
                   Scale
                 </dt>
                 <dd className="mt-1 text-sm text-ink">{project.scale}</dd>
               </div>
               <div>
-                <dt className="font-mono text-[11px] tracking-wider text-ink-muted uppercase">
+                <dt className="font-mono text-xs tracking-wider text-ink-muted uppercase">
                   Stack
                 </dt>
-                <dd className="mt-1 font-mono text-xs leading-relaxed text-ink-secondary">
-                  {project.stack.join(" · ")}
+                <dd className="mt-1 flex flex-wrap gap-1.5 font-mono text-xs leading-relaxed text-ink-secondary">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="border border-line px-2 py-0.5 whitespace-nowrap"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </dd>
               </div>
             </dl>
 
-            {(links.liveUrl || links.repoUrl) && (
-              <div className="mt-6 flex flex-wrap gap-4">
-                {links.liveUrl && (
-                  <a
-                    href={links.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-ink px-4 py-2 font-mono text-xs uppercase hover:bg-ink hover:text-bg"
-                  >
-                    Live product ↗
-                  </a>
-                )}
-                {links.repoUrl && (
-                  <a
-                    href={links.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-line px-4 py-2 font-mono text-xs uppercase hover:border-ink"
-                  >
-                    Source repository ↗
-                  </a>
-                )}
+            {project.liveUrl && (
+              <div className="mt-6">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${project.title} product site (opens in a new tab)`}
+                  className="inline-flex items-center border border-ink px-4 py-2 font-mono text-xs uppercase transition-colors hover:bg-ink hover:text-bg"
+                >
+                  Visit product site ↗
+                </a>
               </div>
             )}
           </header>
@@ -184,7 +178,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <section className="grid grid-cols-1 gap-6 border-b border-line py-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-4">
               <h2 className="font-mono text-xs tracking-wider text-accent uppercase">
-                04 / Decisions &amp; Trade-offs
+                04 / Decisions &amp; Trade‑offs
               </h2>
             </div>
             <div className="space-y-6 lg:col-span-8">
@@ -193,7 +187,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   <h3 className="font-serif text-xl text-ink">
                     {decision.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-secondary">
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">
                     {decision.detail}
                   </p>
                 </div>

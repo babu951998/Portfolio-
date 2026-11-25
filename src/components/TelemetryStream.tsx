@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { heroContent } from "@/data/site";
 
 interface TelemetryPoint {
   flow: number;
@@ -27,28 +28,34 @@ const INITIAL_POINTS: TelemetryPoint[] = [
   { flow: 45.2, pressure: 3.3, level: 82 },
 ];
 
-function buildPath(values: number[], width: number, height: number): string {
+function buildCoordinates(
+  values: number[],
+  width: number,
+  height: number
+): { x: number; y: number }[] {
   const min = Math.min(...values) - 1;
   const max = Math.max(...values) + 1;
   const range = max - min || 1;
-  const stepX = width / Math.max(values.length - 1, 1);
+  const stepX = (width - 12) / Math.max(values.length - 1, 1);
 
-  return values
-    .map((v, idx) => {
-      const x = (idx * stepX).toFixed(1);
-      const y = (height - ((v - min) / range) * (height - 8) - 4).toFixed(1);
-      return `${idx === 0 ? "M" : "L"}${x},${y}`;
-    })
-    .join(" ");
+  return values.map((v, idx) => ({
+    x: Number((4 + idx * stepX).toFixed(1)),
+    y: Number((height - ((v - min) / range) * (height - 16) - 8).toFixed(1)),
+  }));
 }
 
 export function TelemetryStream() {
   const [points, setPoints] = useState<TelemetryPoint[]>(INITIAL_POINTS);
   const [tick, setTick] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (media.matches) return;
+    if (media.matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setReducedMotion(true);
+      return;
+    }
 
     const interval = setInterval(() => {
       setTick((t) => t + 1);
@@ -81,49 +88,60 @@ export function TelemetryStream() {
   }, []);
 
   const latest = points[points.length - 1];
-  const width = 320;
-  const height = 76;
-  const flowPath = buildPath(
+  const width = 340;
+  const height = 140;
+  const coords = buildCoordinates(
     points.map((p) => p.flow),
     width,
     height
   );
+  const flowPath = coords
+    .map((pt, idx) => `${idx === 0 ? "M" : "L"}${pt.x},${pt.y}`)
+    .join(" ");
+  const lastPoint = coords[coords.length - 1];
+  const gridYPositions = [0.2, 0.4, 0.6, 0.8].map((r) =>
+    Math.round(height * r)
+  );
 
   return (
     <aside
-      aria-label="Simulated KarIoT 1-second MQTT telemetry stream"
-      className="border border-line bg-surface/60 p-4 sm:p-5"
+      aria-label="Simulated 1-second MQTT telemetry stream"
+      className="border border-line bg-surface/60 p-5 sm:p-6"
     >
-      <div className="mb-3 flex items-center justify-between gap-4 border-b border-line pb-2.5">
+      <div className="mb-4 flex items-center justify-between gap-4 border-b border-line pb-3">
         <div className="flex items-center gap-2">
           <span
             className="inline-block h-2 w-2 rounded-full bg-accent"
             aria-hidden="true"
           />
-          <span className="font-mono text-[11px] tracking-wider text-ink uppercase">
-            MQTT → Socket.io Stream
+          <span className="font-mono text-xs tracking-wider text-ink uppercase">
+            {heroContent.telemetryTitle}
           </span>
         </div>
-        <span className="font-mono text-[11px] text-ink-muted">
-          1 Hz · 5,000+ nodes
+        <span className="font-mono text-xs text-ink-muted">
+          {heroContent.telemetryBadge}
         </span>
       </div>
 
-      <div className="my-2 overflow-hidden">
+      <div className="my-3 overflow-hidden">
         <svg
           viewBox={`0 0 ${width} ${height}`}
-          className="h-18 w-full"
+          className="h-36 w-full"
           role="img"
           aria-label="Live sensor flow rate waveform"
         >
-          <line
-            x1="0"
-            y1={height / 2}
-            x2={width}
-            y2={height / 2}
-            stroke="var(--border-hairline)"
-            strokeDasharray="3 3"
-          />
+          {gridYPositions.map((yPos) => (
+            <line
+              key={yPos}
+              x1="0"
+              y1={yPos}
+              x2={width}
+              y2={yPos}
+              stroke="var(--border-hairline)"
+              strokeOpacity="0.65"
+              strokeDasharray="3 3"
+            />
+          ))}
           <path
             d={flowPath}
             fill="none"
@@ -132,32 +150,43 @@ export function TelemetryStream() {
             strokeLinejoin="round"
             strokeLinecap="round"
           />
+          {!reducedMotion && (
+            <circle
+              cx={lastPoint.x}
+              cy={lastPoint.y}
+              r="6"
+              fill="var(--accent)"
+              fillOpacity="0.25"
+              className="animate-ping"
+              style={{ transformOrigin: `${lastPoint.x}px ${lastPoint.y}px` }}
+            />
+          )}
+          <circle
+            cx={lastPoint.x}
+            cy={lastPoint.y}
+            r="3.2"
+            fill="var(--accent)"
+          />
         </svg>
       </div>
 
-      <dl className="mt-3 grid grid-cols-3 gap-3 border-t border-line pt-3 font-mono text-xs">
+      <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-line pt-4 font-mono text-xs">
         <div>
-          <dt className="text-[10px] tracking-wider text-ink-muted uppercase">
-            Flow
-          </dt>
-          <dd className="mt-0.5 text-ink">{latest.flow} L/s</dd>
+          <dt className="tracking-wider text-ink-muted uppercase">Flow</dt>
+          <dd className="mt-1 text-sm text-ink">{latest.flow} L/s</dd>
         </div>
         <div>
-          <dt className="text-[10px] tracking-wider text-ink-muted uppercase">
-            Pressure
-          </dt>
-          <dd className="mt-0.5 text-ink">{latest.pressure} bar</dd>
+          <dt className="tracking-wider text-ink-muted uppercase">Pressure</dt>
+          <dd className="mt-1 text-sm text-ink">{latest.pressure} bar</dd>
         </div>
         <div>
-          <dt className="text-[10px] tracking-wider text-ink-muted uppercase">
-            Tank Level
-          </dt>
-          <dd className="mt-0.5 text-ink">{latest.level}%</dd>
+          <dt className="tracking-wider text-ink-muted uppercase">Level</dt>
+          <dd className="mt-1 text-sm text-ink">{latest.level}%</dd>
         </div>
       </dl>
 
-      <p className="mt-3 font-mono text-[10px] text-ink-muted">
-        kariot/site-104/pump-02 · seq #{1040 + tick} (illustrative telemetry)
+      <p className="mt-4 font-mono text-xs text-ink-muted">
+        {heroContent.telemetryNote} · seq #{1040 + tick}
       </p>
     </aside>
   );

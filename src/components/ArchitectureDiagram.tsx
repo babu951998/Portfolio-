@@ -1,4 +1,4 @@
-import type { CaseStudy } from "@/data/portfolio";
+import type { CaseStudy } from "@/data/site";
 
 interface ArchitectureDiagramProps {
   architecture: CaseStudy["architecture"];

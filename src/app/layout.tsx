@@ -37,11 +37,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.role}`,
+    default: siteConfig.metadata.title,
     template: `%s · ${siteConfig.name}`,
   },
-  description:
-    "Full Stack Developer with 2.5+ years of experience building real-time IoT platforms (5,000+ devices, MQTT to Socket.io), Node.js APIs, MongoDB time-series pipelines, and React/Angular dashboards.",
+  description: siteConfig.metadata.description,
   alternates: {
     canonical: "/",
   },
@@ -50,15 +49,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.role}`,
-    description:
-      "Full Stack Developer building real-time IoT telemetry systems, Node.js & CodeIgniter 4 APIs, MongoDB aggregation pipelines, and React/Angular dashboards.",
+    title: siteConfig.metadata.ogTitle,
+    description: siteConfig.metadata.ogDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.role}`,
-    description:
-      "Full Stack Developer building real-time IoT telemetry systems (5,000+ devices) and scalable web platforms.",
+    title: siteConfig.metadata.ogTitle,
+    description: siteConfig.metadata.twitterDescription,
   },
   robots: {
     index: true,

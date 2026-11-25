@@ -5,13 +5,6 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { ThemeToggle } from "./ThemeToggle";
 
-const navLinks = [
-  { href: "/#work", label: "Work" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#about", label: "About" },
-  { href: "/#contact", label: "Contact" },
-];
-
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -30,7 +23,7 @@ export function Header() {
           aria-label="Primary navigation"
           className="hidden items-center gap-7 md:flex"
         >
-          {navLinks.map((item) => (
+          {siteConfig.navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -43,9 +36,10 @@ export function Header() {
             href="/resume"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-ink px-3 py-1.5 font-mono text-xs tracking-wide text-ink uppercase transition-colors hover:bg-ink hover:text-bg"
+            aria-label="Resume PDF (opens in a new tab)"
+            className="link-draw font-mono text-xs tracking-wide text-ink-secondary uppercase transition-colors hover:text-ink"
           >
-            Resume
+            Resume ↗
           </a>
           <ThemeToggle />
         </nav>
@@ -98,26 +92,27 @@ export function Header() {
           className="border-t border-line bg-bg px-5 py-5 md:hidden"
         >
           <ul className="flex flex-col gap-4">
-            {navLinks.map((item) => (
+            {siteConfig.navLinks.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block font-mono text-sm tracking-wide text-ink-secondary uppercase hover:text-ink"
+                  className="block font-mono text-xs tracking-wide text-ink-secondary uppercase hover:text-ink"
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
+            <li>
               <a
                 href="/resume"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Resume PDF (opens in a new tab)"
                 onClick={() => setMenuOpen(false)}
-                className="inline-block border border-ink px-4 py-2 font-mono text-xs tracking-wide text-ink uppercase hover:bg-ink hover:text-bg"
+                className="inline-block font-mono text-xs tracking-wide text-ink-secondary uppercase hover:text-ink"
               >
-                Resume PDF
+                Resume ↗
               </a>
             </li>
           </ul>

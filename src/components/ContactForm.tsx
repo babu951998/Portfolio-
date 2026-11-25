@@ -1,9 +1,26 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { contactContent } from "@/data/site";
+import emailjs from "@emailjs/browser";
+import { z } from "zod";
+import { contactContent, siteConfig } from "@/data/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const formSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, "Name must be at least 2 characters.")
+    .max(100, "Name is too long."),
+  email: z.string().trim().email("Please enter a valid email address."),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Message must be at least 10 characters.")
+    .max(2000, "Message must be under 2000 characters."),
+  website: z.string().optional().default(""),
+});
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -17,18 +34,64 @@ export function ContactForm() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const payload = {
-      name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      message: String(formData.get("message") || "").trim(),
-      website: String(formData.get("website") || "").trim(),
-    };
+    const parsed = formSchema.safeParse({
+      name: String(formData.get("name") || ""),
+      email: String(formData.get("email") || ""),
+      message: String(formData.get("message") || ""),
+      website: String(formData.get("website") || ""),
+    });
+
+    if (!parsed.success) {
+      setStatus("error");
+      setErrorMessage(
+        parsed.error.issues[0]?.message || "Please check your inputs."
+      );
+      return;
+    }
+
+    const { name, email, message, website } = parsed.data;
+
+    // Honeypot triggered: pretend success so bots do not retry
+    if (website.length > 0) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (serviceId && templateId && publicKey) {
+      try {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: name,
+            from_email: email,
+            reply_to: email,
+            to_email: siteConfig.email,
+            message,
+          },
+          { publicKey }
+        );
+        setStatus("success");
+        form.reset();
+      } catch {
+        setStatus("error");
+        setErrorMessage(
+          `Could not send message via EmailJS. Please email ${siteConfig.email} directly.`
+        );
+      }
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ name, email, message, website }),
       });
 
       const data = (await response.json()) as { error?: string };

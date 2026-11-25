@@ -68,6 +68,12 @@ export function ContactForm() {
           serviceId,
           templateId,
           {
+            title: `Portfolio inquiry from ${name}`,
+            name,
+            email,
+            time: new Date().toLocaleString("en-IN", {
+              timeZone: "Asia/Kolkata",
+            }),
             from_name: name,
             from_email: email,
             reply_to: email,

@@ -1,53 +1,115 @@
 %PDF-1.4
-1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
-2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
-3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
-4 0 obj << /Length 1869 >> stream
-BT
-/F1 10 Tf
-50 760 Td
-14 TL
-(Babu P) Tj T*
-(Full Stack Developer | Node.js | React.js | Angular | Python | PHP \(CodeIgniter 4\)) Tj T*
-(Tamil Nadu, India | +91 86082 19655 | arivubabu98@gmail.com | linkedin.com/in/babu9598) Tj T*
-() Tj T*
-(PROFESSIONAL SUMMARY) Tj T*
-(Full Stack Developer with 2.5+ years of experience building web applications, REST APIs,) Tj T*
-(and real-time IoT platforms using Node.js, Express.js, React.js, Angular, PHP \(CodeIgniter 4\),) Tj T*
-(Python, MongoDB, and MySQL. Contributed to an IoT platform supporting 5,000+ connected) Tj T*
-(devices across 100+ customer sites.) Tj T*
-() Tj T*
-(EXPERIENCE) Tj T*
-(Software Developer | Team Tweaks Technology Pvt. Ltd. | April 2024 - Present) Tj T*
-(- Develop and maintain full-stack applications and REST APIs for 500+ users across 100+ sites.) Tj T*
-(- Built and maintained an MQTT-to-Socket.io pipeline receiving 1-second telemetry from 5,000+ devices.) Tj T*
-(- Designed MongoDB schemas, queries, and aggregation pipelines for time-series sensor data.) Tj T*
-(- Built RBAC admin modules, integrated payment gateways, LDAP, Firebase, AWS S3, and AI chatbot.) Tj T*
-() Tj T*
-(PROJECTS) Tj T*
-(KarIoT - Smart Water Management Platform \(5,000+ devices, 100+ sites, CMWSSB\)) Tj T*
-(Unimation Robotics - Smart AC Monitoring and Control Platform \(MQTT, CI4, Angular, MongoDB\)) Tj T*
-(Fixix - Construction Materials E-Commerce Platform \(MERN stack, RBAC, REST APIs\)) Tj T*
-() Tj T*
-(ADDITIONAL EXPERIENCE) Tj T*
-(Inside Sales Associate | Byju's Classes | Jul 2022 - Jul 2023) Tj T*
-(Automation Engineer | Foxconn Hon Hai Technology India Pvt. Ltd. | Jan 2022 - Jun 2022) Tj T*
-(Site Manager | Sodexo India Services Pvt. Ltd. | Jan 2020 - Dec 2021) Tj T*
-() Tj T*
-(EDUCATION) Tj T*
-(B.E. Electronics and Communication | Muthayammal Engineering College \(Anna University\) | 2015-2019) Tj T*
-ET
-endstream endobj
-5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+%“Œ‹ž ReportLab Generated PDF document (opensource)
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 6 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://linkedin.com/in/babu9598)
+>> /Border [ 0 0 0 ] /Rect [ 167.9193 735.5898 269.9703 746.3898 ] /Subtype /Link /Type /Annot
+>>
+endobj
+5 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://portfolio-babu-98.vercel.app/)
+>> /Border [ 0 0 0 ] /Rect [ 315.3303 735.5898 427.3803 746.3898 ] /Subtype /Link /Type /Annot
+>>
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+7 0 obj
+<<
+/Annots [ 4 0 R 5 0 R ] /Contents 12 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 11 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+8 0 obj
+<<
+/Contents 13 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 11 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+9 0 obj
+<<
+/PageMode /UseNone /Pages 11 0 R /Type /Catalog
+>>
+endobj
+10 0 obj
+<<
+/Author (Babu P) /CreationDate (D:20261125071735+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261125071735+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (Full Stack Developer Resume) /Title (Babu P - Full Stack Developer Resume) /Trapped /False
+>>
+endobj
+11 0 obj
+<<
+/Count 2 /Kids [ 7 0 R 8 0 R ] /Type /Pages
+>>
+endobj
+12 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3274
+>>
+stream
+Gb!#^>Bedl&q9SYW(4,o77)f'k%-9e1LuG3%("VIa"NEcTOUQqk^p^BrUF+BXW'0#Sn-HunKF4K;KlE]qPo>T-N7-4?e5NB?bj9H$`l6;emNWZ%P4bj]K#e7An=b!(>eENCnol0o^Nr,1=]:03Q&>.@RJqfa3E>b2JKL@S$m'9QI-Z0Mg0.DNH;O%@J0m@?XWC7BH=88Z(LOKiR(F#q+"ZSBM0B5F:G;"a\TWE4V-Z]F78%=n$j`4*l3?a>->C*-,uu)cJ1fp%YIL@0j:19PH>8WijTf\2FdK6A.sb%hsK45.J,SZl@^(HY$jOj%1<A4$]DBrXM3))]"&^ejpM^&fd^jU,ZkA-ZFq8\d-mEO<.E8;*5'05YtLEslTtQC)kRG_E2?o4Har/DEG_TtmUI[tX(s]G^t*jG;%(Kem@`Epi/Y!/5j,lq_)is,1[$>l)Iune-#;`Oq&]1A0Yc#0B3U#&Z/^ti4bJGs7>'mi-T&'m%;m%Y)*)f0a%g,foC6i`T2.XW&$KC?a)jATq(k87fQfADE=W`HGc7V^X2H?&;%]V)D49idqgQ?,QY_GH?dFZPgn+c80-<6-2Mu5NL9m''Luq_]`hUMUA(ILj51hAPdBL%2L,R9'4Lu?N(/V$?YidQp6*>cg_ZdjYQbtQn*lbu"meILBNLk)l,%M6DiFY2Z^i23J9,=TOill0a_WNV8$OAnMTb.$>iHNa)HZn:5OLg3:)Uk9\!]OQc/W=ooX6Vm7Rs?JBO!em&9CO9%A[%:5k?<i/IfATSJGGc*4MCk/_"?)b5tea6VNP=>h)h2F6GeU+$pkPH%![fQH=FqbB"VDA(9QS*Ipea?`&C;:Fk#$-7sg=@.P:Wt\!u:`2j,nVG/E@p0_qu5iM=HP=MtN'j_e5,PR4Fu)gi\P#)m)S6t2S4",Xs?%kJ$,)H)0LiLHcZRW$$-6,6cP*;?-/J^N^:L9(-Y37gmb7/CT((ekgABfNl&9o_\qN8P]EE)a$R)+b?GHn'h(2JoKQ2G^7;@QaMSH8;4BrI&^/26Ta+Y&0aqL_ie;DS&u+nT`H%%-n$+)Ztf4=_<gcZ=GQWG8A:p`-e2)Fi?$NfS7H8Q";Geh1-#Pa6%7b_P@KrIE;$G4?YBFRdf'@HK?tl1nWMsR,b@gDji*5pPXJ<@45Uo*Kg%dH@P`YM=e/?cG28_h_.eAdmrIZMEqJDF+AA]_u.5/+-)e/FYTE&0MT!C`Ygu"*bYZN+I@)-@_KM7I(s,,#[U.>*t=/K[r*.+GKYDh)'+VEMDhO9frP<?jTbK^_)"D\"fO:>FLrn,a"qhITusX5b!Dt`R!24?"S!gdk"C]g(rJ@_2[QG0)mJ6ApN[D=WJ:1'iFDqNaG:IbG#nAf]c(1HcAs7<E2&EApjUF;)(j+)aAJ6Q!'4`?)Wi??Z;;cca81p'>tF5!>%g^/a&6ICGn'rr^BtZp1jM$k5Z!S_i\QOiJ'D!%i14tpp_3UH\Nm[8'G77Ie9f%H'8p_S%lKf_X/PVWZu>m2g%]/7^)i8L98V-;ZX:J336:GJVb2eUG)^ZN#GRbpEH4ACk&R$JZ\T^1:CGHqUdCU-`H^cf"6mqP*bIL0,$2n/TOo[4Y[_C:m1.p[gKg0i6Is.dVdF!:'bSi'=:fOo=uC+6NOMrlVmaXZO/ZiUs/Xm:<&N-$"Z1Bu6%U1\,LpMIMX"/$XEpfFGBe_(*bV,L`B$oH*g9Je(5Io<hNhUO3T+ZAJ>:X3(gGQm1GJ?Dg[<LC!*SqS[Kjp*XV&+2k1m(,[SF&CC_g8.G%C"d7r;?uda+=5&`9,-7QdT^kh;1IBGqt6,f-N.K^t]bTRXc6Q#'[0fsZ(P97<DR&P:cGgg+Q-q^7221o]cSaNANP4KcSe_C<oec9Ek%XtFhGb2KXbZk[c.gJOA?%A,PBZ7mRoOqomNZ0$GA`)N]lNAWE6j/+8ek_C]fg#]JILrc5pEf(M\JqM3C:F<Bml_%Z:)E_T?C.(nEg5=ErJERd/1'L7/qY$S'9)TQ^N%FEufGpQB="3iUg99#+[A`Yjp+F=/&Ic,X,-/1kPl;#@RZn&Xe4oF)7OrUO"?Qa28L-pkh1I%4jp@kn*CST:PJQbjesTq;JZTTjW0$D'5ljFU^M!F',O=[s=YKPBR)W>9A0TUdTHi-IB[mGmPjBpl%aBl=NVQ[[#;(^:g+V1DALi6a(!,1:bhDF]G+D'm.KaqKFN^C1UTU$_aE7#&#"96['7OTA_8JYVeEYha3q'#pfC%0ET$pq`5/%qr(?5cf;YU9rl3@[)m8P"J=(?fih(HWj]\#+m^#Ip]JXLj!PFMFdcL@56Q'noXK3"hj/9foeK-$RtHmkoS-[]M!lf[<=>kTDQLj\JReGGDWSXB3fr2QPtO2c^]=0+67"iYglNHX2ChFP<cBK_mb<<fHNb52j9_'AP:K_?.dbXaFk,d'[W`JT0WDrSJp;G^G#dlAA(Hn/$5EQCqT9XnE/k/*nXkP>%g-CNU`rtR+id]!'_,HC47OouO;9SQ'-a#\_X8ma5#7SqN4Z4,\S5*Mr8Z4=KR@#HNV02&-3a#7Anaa5:=P\I8'.J#rZ[?UtZg?c58<L8j-Ia9A`D>Q18FlJ1JJd\r!8anIAYb<>+;)qJN1/fS1;5H#bo5Ehlo9FfF=.QfV%o#Z9=d\a[##lr$)9D_9!j:JE(bd6B5F'Ui1:j6"5oW4+_;g@+,/_<R0h#fTpdHeMM_/Y`5&e!@P"k>LY@C2uL*,RFOmU);/\Z1hL[`YMog?uRFHD7P2kD!#ki=Bh+(%H!8[qESf%Af)<<tbK.?E]7o6:Qf-X2bEZT]Ba@Df(dNUKm%^6E=uqh``%3kP?rNiF]f6(asB/Qj!C1fh>!?J_F+>1,P3c%=L5=,)rhRgAp(#[^*ENC3kG>Z=81E-,Q.qOQugEh(j_hZ'#b4Q$:e,QLlc55lkGMfJ)@a&Y=^cYW$s;t1phf8khlH]43#=iiA,K\<s+ZcuF*r-pXo[D&S*P/b>D"KP.a<uP%&jH22:[^#+\Q@(QS?F'XkORn`l1JNd8Mp*[(elfe1IYnb)UE>).7#oCmLkT9oMl+S><3KLX'FMK9*pMWg[@o27"W;*O<jW^D25i%]?mnmFjgCu:;!l_&2)#?8HJS$XW_;kVI+.#,+G:FR<E0</((>.-W\KH:,>DBf!DcLLgZsu+T.//DiTU(:?RS2'RIK7heD95L]jAWOa#DWGZs6=mb.)4uEH_[fO2je:^Ml/0WXb1G)#6Yd=^B]T4IjTb*+rh=(mG.@Put;$g]Yq%$_>7Yrr~>endstream
+endobj
+13 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 622
+>>
+stream
+Gb!$C;/_pX&BE]('_f%XW]]X0!08D!CT94,$^LFI(CM5BeCY\$XHE)4HU*b%908q59bth5ZiBdkfk1XM2VS(m*+0Ju[jqfM6+d?c&-q24KX(3nU5,-=MM&(`-_BLJ\-?5^j!lel=4<?U,m/sEP[cuG]"`&lB@%#5PA*/X0b7+Wk?[j:%Hld@!oc)U?gD+of\Qbtq\[KK)!SdSZQZdW"@.fF,XYrsa$I>g]tnW8:jDbQ&Jon#]!69pI"n^\.#8e%qm3E:rX%W?3HPSpa9s6l0e]KT;Nj!n;dIOF5fAp9+Xg!I86uVT_e?O9HmrL*GZgbV%lYF2b[q8!N"(hKs'IcS\:I$FcbfpUb2g3u7RO+1WJ)`3jN9S47VfNRiG1%h(<K/fA[3=MFXfE,D(>[o.O?r0f5ITlX+T,7`;Mf@,VakZ>k>&5ND(gnblKC/`E"=QcZ^5nQ>n+3g7fUHXP_.pEB/]9a)Or-6[&hjgt$sO!n9GCS2lA=e,;*3#lWu&7Qaf[AI:-7dlimU]7a";Uah=h8I8Y"0K+3j6*%\^Haqm2/&(%hcIM673):ucM+a6-S3K/VF\Hjpd0m>Dn>PGL'W%mSM[S$C2BB/[O$3NH1BHeFYO=NY~>endstream
+endobj
 xref
-0 6
+0 14
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000241 00000 n 
-0000002162 00000 n 
-trailer << /Size 6 /Root 1 0 R >>
+0000000061 00000 n 
+0000000112 00000 n 
+0000000219 00000 n 
+0000000331 00000 n 
+0000000515 00000 n 
+0000000704 00000 n 
+0000000819 00000 n 
+0000001048 00000 n 
+0000001253 00000 n 
+0000001322 00000 n 
+0000001631 00000 n 
+0000001697 00000 n 
+0000005063 00000 n 
+trailer
+<<
+/ID 
+[<e2722440e2c36ac790fedb6fa573274b><e2722440e2c36ac790fedb6fa573274b>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 10 0 R
+/Root 9 0 R
+/Size 14
+>>
 startxref
-2232
+5776
 %%EOF

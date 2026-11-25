@@ -375,5 +375,5 @@ export const aboutContent = {
     "At Team Tweaks Technology, I work across the stack with Node.js, PHP (CodeIgniter 4), React, Angular, Python, MongoDB, and MySQL. Most of my day-to-day focus is on reliable telemetry ingestion, time-series aggregation, role-based APIs, and live operator interfaces that stay responsive under continuous 1-second device traffic.",
   ],
   education:
-    "B.E. Electronics and Communication · Muthayammal Engineering College, Namakkal (Anna University) · 2015 – 2019 · CGPA 6.5/10",
+    "B.E. Electronics and Communication · Muthayammal Engineering College, Namakkal (Anna University) · 2015 – 2019",
 };

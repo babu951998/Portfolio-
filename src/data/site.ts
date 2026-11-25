@@ -33,19 +33,12 @@ export const siteConfig: SiteConfig = {
    * Used for canonical URLs, sitemap.xml, robots.txt, and Open Graph metadata.
    */
   siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL || "https://babu-portfolio.vercel.app",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-babu-98.vercel.app",
   email: "arivubabu98@gmail.com",
   phone: "+91 86082 19655",
   linkedinUrl: "https://www.linkedin.com/in/babu9598",
-  /**
-   * TODO (for you to fill in): Add your GitHub profile URL, e.g. "https://github.com/babu9598"
-   * Leave empty string "" until ready; the UI will show a muted placeholder or hide the link cleanly.
-   */
   githubUrl: "https://github.com/babu951998",
-  /**
-   * TODO (for you to fill in): Optional path to your headshot in /public (e.g. "/images/babu.jpg").
-   */
-  photoUrl: "",
+  photoUrl: "/images/babu.jpg",
   /**
    * Resume PDF path inside /public, served at /resume
    */

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { aboutContent } from "@/data/portfolio";
+import { siteConfig } from "@/data/site";
 import { Reveal } from "./Reveal";
 
 export function AboutSection() {
@@ -20,6 +22,19 @@ export function AboutSection() {
             >
               From hardware floors to telemetry backends
             </h2>
+            {siteConfig.photoUrl && (
+              <div className="mt-6 max-w-[240px] border border-line bg-surface p-1.5">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src={siteConfig.photoUrl}
+                    alt={`${siteConfig.name} — ${siteConfig.role}`}
+                    fill
+                    sizes="(max-width: 1024px) 240px, 240px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
           <Reveal className="lg:col-span-8">
